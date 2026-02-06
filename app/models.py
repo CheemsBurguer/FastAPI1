@@ -6,7 +6,7 @@ class Categoria(Base):
     __tablename__ = "categoria"
     id = Column(Integer, primary_key=True, index=True)
     nombre = Column(String(100), unique=True, index=True)
-    productos = relationship("Producto", back_populates="categoria")
+    productos = relationship("Producto", back_populates="categorias")
 
 class Producto(Base):
     __tablename__ = "producto"
@@ -15,7 +15,7 @@ class Producto(Base):
     precio = Column(Float)
     en_stock = Column(Boolean, default=True)
     categoria_id = Column(Integer, ForeignKey("categoria.id"))
-    categoria = relationship("Categoria", back_populates="producto")
+    categorias = relationship("Categoria", back_populates="productos")
 
 class Usuario(Base):
     __tablename__ = "usuario"
@@ -23,4 +23,5 @@ class Usuario(Base):
     nombre = Column(String(100), unique=True, index=True)
     email = Column(String(100), unique=True, index=True)
     hashed_password = Column(String)
+    es_admin = Column(Boolean, default=False)
     
