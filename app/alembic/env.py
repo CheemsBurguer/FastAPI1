@@ -1,5 +1,11 @@
 from logging.config import fileConfig
-from models import categoria, producto, usuario
+from models.categoria import Categoria
+from models.carrito import Carrito
+from models.detallepedido import DetallePedido
+from models.itemcarrito import ItemCarrito
+from models.pedido import Pedido
+from models.producto import Producto
+from models.usuario import Usuario
 from db.database import Base, engine
 from sqlalchemy import engine_from_config
 from sqlalchemy import pool
