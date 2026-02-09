@@ -1,0 +1,10 @@
+from sqlalchemy import Column, Integer, String, Boolean
+from db.database import Base
+
+class Usuario(Base):
+    __tablename__ = "usuario"
+    id = Column(Integer, primary_key=True, index=True)
+    nombre = Column(String(100), unique=True, index=True)
+    email = Column(String(100), unique=True, index=True)
+    hashed_password = Column(String)
+    es_admin = Column(Boolean, default=False)
